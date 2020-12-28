@@ -1,8 +1,5 @@
-package com.example.websockety;
+package com.example.websockety.websocket;
 
-import javafx.scene.input.DataFormat;
-
-import java.time.LocalTime;
 
 public class ChatMessage {
     private String value;
@@ -51,7 +48,13 @@ public class ChatMessage {
         this.user = user;
     }
 
+    @Override
+    public String toString() {
+        return "ChatMessage{" +
+                "value='" + value + '\'' +
+                ", user='" + user + '\'' +
 
-
-
+                ", time='" + time + '\'' +
+                '}';
+    }
 }
