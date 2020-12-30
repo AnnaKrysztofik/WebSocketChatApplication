@@ -52,6 +52,16 @@ public String hello(Principal principal, Model model) {
     return "hello";
 }
 
+    @GetMapping("/")
+    public String chat(Principal principal, Model model) {
+        model.addAttribute("name", principal.getName());
+        Collection<? extends GrantedAuthority> authorities = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+        Object details = SecurityContextHolder.getContext().getAuthentication().getDetails();
+        model.addAttribute("authorities", authorities);
+        model.addAttribute("details", details);
+        return "index";
+    }
+
     @GetMapping("/sign-up")
     public String singUp(Model model) {
         model.addAttribute("user", new AppUser());

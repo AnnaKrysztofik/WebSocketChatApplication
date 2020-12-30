@@ -10,15 +10,24 @@
 <div>
 
     <label>User:</label>
-    <!-- //*  <input id="user" type="text"/><br> */-->
-      <span th:text="${username}"></span>
+    <!--  <input id="user" type="text"/><br>
+    //*  <span th:text="${username}"></span>
+       <div class="name" onload="showMyName">Ania</div>
+   <span th:text="${user}">{{user}}</span>
+   <div class="name" onload="showMyName(${user})">Ania</div>
+   to do: Jak wyświetlić użytkownika? -->
+
+   <span th:text="${name}"/>
 
 
+        <br>
       <label>You message:</label>
       <input id="messageToSend" type="text"/><br>
 
       <button onclick="sendMessage()">Send</button>
+
       <p id="response"></p>
+
   </div>
   <script src="js.js"></script>
   <script src="stomp.js"></script>

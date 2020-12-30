@@ -15,7 +15,7 @@ public class Start {
 
         AppUser appUserJanusz = new AppUser();
         appUserJanusz.setUsername("Janusz");
-        appUserJanusz.setPassword(passwordEncoder.encode("Janusz123"));
+        appUserJanusz.setPassword(passwordEncoder.encode("123"));
         appUserJanusz.setRole("ROLE_USER");
         appUserJanusz.setEnabled(true);
         appUserRepo.save(appUserJanusz);
