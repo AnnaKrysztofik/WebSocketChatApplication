@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -51,7 +52,13 @@ public String hello(Principal principal, Model model) {
     model.addAttribute("details", details);
     return "hello";
 }
+   @CrossOrigin(origins = "http://localhost:8080")
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "login";
+    }
 
+  @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/")
     public String chat(Principal principal, Model model) {
         model.addAttribute("name", principal.getName());
@@ -61,17 +68,19 @@ public String hello(Principal principal, Model model) {
         model.addAttribute("details", details);
         return "index";
     }
-
+   @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/sign-up")
     public String singUp(Model model) {
         model.addAttribute("user", new AppUser());
-        return "sign-up";
+     return "sign-up";
+
     }
 
     @PostMapping("/register")
     public String register(AppUser appUser) {
         userService.addUser(appUser);
-        return "sign-up";
+      // return "sign-up";
+        return "login";
     }
 
 }

@@ -62,9 +62,15 @@ public PasswordEncoder getPasswordEncoder(){
         http.authorizeRequests()
                 .antMatchers("/hello").authenticated()
                 .antMatchers("/").authenticated()
+                //       .antMatchers("/").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/sign-up").permitAll()
                 .and()
-                .formLogin().defaultSuccessUrl("/");
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .defaultSuccessUrl("/")
+                .and()
+                .httpBasic();
     }
 }

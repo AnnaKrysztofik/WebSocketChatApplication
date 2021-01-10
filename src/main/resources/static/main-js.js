@@ -46,8 +46,7 @@ function connect() {
 
 function sendMessage() {
     var messageToSend = document.getElementById('messageToSend').value;
-
-    var user = "${name}";
+    var user = document.getElementsByTagName('span')[0].innerText;
     var date = getDate();
     client.send("/app/chat", {}, JSON.stringify({'value': messageToSend, 'user': user, 'userColor': color, 'time': date}) );
     document.getElementById('messageToSend').value = "";

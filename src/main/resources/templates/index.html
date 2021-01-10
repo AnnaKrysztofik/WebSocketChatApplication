@@ -1,35 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <title>Hello chat!!!</title>
-</head>
-<body onload="connect()">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+      <link rel="stylesheet" th:href="@{style.css}"/>
+    <!--  <link rel="stylesheet" href="../static/style.css" type="text/css"> -->
+    </head>
+    <body onload="connect()">
 
-<div>
+    <div id="chat-page">
+            <div class="heading">
+                <label>Użytkownik:</label>
+      <!--  <input id="user" type="text"/><br>
+      //*  <span th:text="${username}"></span>
+         <div class="name" onload="showMyName">Ania</div>
+     <span th:text="${user}">{{user}}</span>
+     <div class="name" onload="showMyName(${user})">Ania</div>
+     to do: Jak wyświetlić użytkownika? -->
+            <span id="span" th:text="${name}"/>
+        </div>
+    <br><!-- <label>Twoja wiadomość:</label> -->
 
-    <label>User:</label>
-    <!--  <input id="user" type="text"/><br>
-    //*  <span th:text="${username}"></span>
-       <div class="name" onload="showMyName">Ania</div>
-   <span th:text="${user}">{{user}}</span>
-   <div class="name" onload="showMyName(${user})">Ania</div>
-   to do: Jak wyświetlić użytkownika? -->
-
-   <span th:text="${name}"/>
 
 
-        <br>
-      <label>You message:</label>
-      <input id="messageToSend" type="text"/><br>
 
-      <button onclick="sendMessage()">Send</button>
+    <div class="form-group">
+        <div class="input-group">
+            <input id="messageToSend" type="text" placeholder="Twoja wiadomość"/><br>
+            <button onclick="sendMessage()">Wyślij wiadomość</button>
+        </div>
+    </div>
 
-      <p id="response"></p>
-
-  </div>
-  <script src="js.js"></script>
-  <script src="stomp.js"></script>
-  </body>
-  </html>
+    <div class="chat-container">
+        <p id="response"></p>
+    </div>
+</div>
+<script src="main-js.js"></script>
+<script src="stomp.js"></script>
+</body>
+</html>

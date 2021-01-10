@@ -1,19 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sign-up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+   <link rel="stylesheet" th:href="@{style.css}"/>
+
+    <!--   <link rel="stylesheet" href="../static/style.css" type="text/css"> -->
 </head>
 <body>
-<h1>Register</h1>
-<form th:action="@{/register}" method="post">
-    Login:
-    <input type="text" name="username">
-    Password:
-    <input type="text" name="password">
 
-    <input type="submit" value="sign up!">
+    <div id="username-page">
+        <div class="username-page-container">
+            <h1 class="login-title">Rejestracja</h1>
 
-</form>
+
+                 <form th:action="@{/register}" method="post">
+
+    <!--  <input type="text" name="username">-->
+        <input type="text" name="username"  placeholder="Username" autocomplete="off" class="form-control"/>
+    <!--    <input type="text" name="password">-->
+      <input type="text" name="password" placeholder="Password" autocomplete="off" class="form-control"/>
+        <div class="form-group">
+            <button type="submit" class="accent username-submit" >Zarejestruj się</button>
+        </div>
+          <!--     <input type="submit" value="sign-up">-->
+
+                    </form>
+              </div>
+          </div>
 </body>
 </html>
