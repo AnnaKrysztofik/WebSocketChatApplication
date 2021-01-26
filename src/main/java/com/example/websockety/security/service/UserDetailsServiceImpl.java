@@ -1,6 +1,6 @@
-package com.example.websockety.security;
+package com.example.websockety.security.service;
 
-import com.example.websockety.security.AppUserRepo;
+import com.example.websockety.security.repo.AppUserRepo;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,11 +16,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-     //   val user = appUserRepo.findByUsername(s);
-
-     //   user.orElseThrow(()->new UsernameNotFoundException("User not found"));
-
       return appUserRepo.findByUsername(s);
-
     }
 }

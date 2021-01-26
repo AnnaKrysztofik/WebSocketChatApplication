@@ -1,7 +1,7 @@
 package com.example.websockety;
 
-import com.example.websockety.security.AppUser;
-import com.example.websockety.security.AppUserRepo;
+import com.example.websockety.security.entity.AppUser;
+import com.example.websockety.security.repo.AppUserRepo;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -12,12 +12,11 @@ public class Start {
     public Start(AppUserRepo appUserRepo, PasswordEncoder passwordEncoder) {
         this.appUserRepo = appUserRepo;
 
-
-        AppUser appUserJanusz = new AppUser();
-        appUserJanusz.setUsername("Janusz");
-        appUserJanusz.setPassword(passwordEncoder.encode("123"));
-        appUserJanusz.setRole("ROLE_USER");
-        appUserJanusz.setEnabled(true);
-        appUserRepo.save(appUserJanusz);
+        AppUser appUserTest = new AppUser();
+        appUserTest.setUsername("Ania");
+        appUserTest.setPassword(passwordEncoder.encode("123"));
+        appUserTest.setRole("ROLE_USER");
+        appUserTest.setEnabled(true);
+        appUserRepo.save(appUserTest);
     }
 }

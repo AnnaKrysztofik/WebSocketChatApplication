@@ -1,6 +1,4 @@
 package com.example.websockety.websocket;
-
-
 public class ChatMessage {
     private String value;
     private String user;
@@ -30,8 +28,6 @@ public class ChatMessage {
         this.value = value;
     }
 
-
-
     public String getUserColor() {
         return userColor;
     }
@@ -53,7 +49,6 @@ public class ChatMessage {
         return "ChatMessage{" +
                 "value='" + value + '\'' +
                 ", user='" + user + '\'' +
-
                 ", time='" + time + '\'' +
                 '}';
     }

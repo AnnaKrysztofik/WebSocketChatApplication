@@ -1,28 +1,11 @@
 var client = null;
 var color;
-
-
-//var name = document.getElementById('showMyName');
-//document.write
- //document.getElementById("wynik").innerHTML = liczba;
-
-
-//
-//function showMyName(user){
-//    var myName = document.createElement('div');
-//    myName.appendChild(document.createTextNode(user));
-////    document.getElementById('showMyName').innerHTML = myName;
-//
-// var showName = document.getElementById('showMyName');
-//    showName.appendChild(myName);
-//
-//
-//}
+var messageForm = document.querySelector('#messageForm');
+var messageArea = document.querySelector('#messageArea');
 
 function showMessage(value, user, userColor, date) {
     var newResponse = document.createElement('p');
     newResponse.style.color = userColor;
-
     newResponse.appendChild(document.createTextNode(date));
     newResponse.appendChild(document.createTextNode(" || "));
     newResponse.appendChild(document.createTextNode(user));
@@ -30,6 +13,8 @@ function showMessage(value, user, userColor, date) {
     newResponse.appendChild(document.createTextNode(value));
     var response = document.getElementById('response');
     response.appendChild(newResponse);
+    messageArea.appendChild(response);
+    messageArea.scrollTop = messageArea.scrollHeight;
 }
 
 function connect() {
@@ -40,7 +25,6 @@ function connect() {
         client.subscribe("/topic/messages", function(message){
             showMessage(JSON.parse(message.body).value, JSON.parse(message.body).user, JSON.parse(message.body).userColor, JSON.parse(message.body).time)
         });
-
     })
 }
 
@@ -64,8 +48,6 @@ function getRandomColor() {
 function getDate(){
  var today = new Date();
  var date = today.toLocaleTimeString();
-// var date = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
  return date;
-
-
 }
+messageForm.addEventListener('text', sendMessage, true)
